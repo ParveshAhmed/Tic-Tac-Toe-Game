@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  margin: 0;
+}
+header {
+  background-color: purple;
+  color: white;
+  padding: 5px 15px 0;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-family: Holtwood One SC;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 75px;
+  column-gap: 100px;
+}
+.gameContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 370px;
+  height: 360px;
+}
+.box {
+  border: 2px solid grey;
+  font-family: cursive;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+}
+.gameContainer :first-child{
+  border-top-left-radius: 15px;
+}
+.gameContainer :nth-child(3){
+  border-top-right-radius: 15px;
+}
+.gameContainer :nth-child(7){
+  border-bottom-left-radius: 15px;
+}
+.gameContainer :last-child{
+  border-bottom-right-radius: 15px;
+}
+.box:hover{
+  background-color: pink;
+}
+.gameInfo {
+  margin-top: 10px;
+}
+.gameInfo h1 {
+  font-size: 2rem;
+  color: purple;
+  font-family: poppins;
+}
+.gameStatus {
+  margin-top: 30px;
+  font-family: poppins;
+}
+.gameStatus .turn {
+  font-size: 1.5rem;
+}
+.gameStatus button {
+  margin: 0 0 20px 30px;
+  padding: 10px;
+  width: 75px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background-color: violet;
+  border: 0;
+  color: purple;
+}
+.bt {
+  border-top: none;
+}
+.bb {
+  border-bottom: none;
+}
+.bl {
+  border-left: none;
+}
+.br {
+  border-right: none;
+}
+.gameImg img {
+  width: 0px;
+  transition: width 1s ease-in-out;
+}
+
+@media screen and (min-width: 850px) and (max-width: 950px) {
+  .container {
+    column-gap: 10px;
+  }
+}
+@media screen and (min-width: 550px) and (max-width: 850px) {
+  .container {
+    margin-top: 40px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+  .gameContainer {
+    width: 300px;
+    height: 245px;
+  }
+  .box {
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+  }
+  .gameStatus {
+    text-align: center;
+  }
+  .gameImg {
+    display: flex;
+    justify-content: center;
+  }
+  .gameInfo h1 {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .container {
+    margin-top: 40px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+  .gameContainer {
+    width: 300px;
+    height: 245px;
+  }
+  .box {
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+  }
+  .gameStatus {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .gameStatus button {
+    margin: 0 0 5px 25px;
+  }
+  .gameImg {
+    display: flex;
+    justify-content: center;
+  }
+  .gameInfo h1 {
+    font-size: 1.3rem;
+  }
+}
