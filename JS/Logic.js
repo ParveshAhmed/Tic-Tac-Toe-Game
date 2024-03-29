@@ -1,12 +1,14 @@
 let gameOver = new Audio("./Assets/gameover.mp3");
-let ting = new Audio("./Assets/ting.mp3");
+let win = new Audio("./Assets/win music.wav");
+let xTurn = new Audio("./Assets/X turn.wav");
+let oTurn = new Audio("./Assets/O turn.wav");
 
 let turn = "X";
 let isGameOver = false;
 
 // to change the turns
 const changeTurn = () => {
-    return turn === "X" ? "0" : "X";
+    return turn === "X" ? "O" : "X";
 };
 
 // playing logic and match draw
@@ -20,14 +22,20 @@ Array.from(boxes).forEach((element) => {
             boxText.innerText = turn;
             count += 1;
             turn = changeTurn();
+            if (turn == 'X') {
+                xTurn.play()
+            }
+            else {
+                oTurn.play()
+            }
             checkWin();
 
-            if (!isGameOver && count != 9){
-                ting.play();
+            if (!isGameOver && count != 9) {
                 document.querySelector(".turn").innerText = `Turn for : ${turn}`;
             }
             else if (!isGameOver && count == 9) {
                 document.querySelector(".turn").innerText = `Match Tied`;
+                gameOver.play()
                 let i = count - 1;
                 while (i >= 0) {
                     document.getElementsByClassName("box")[i].style.backgroundColor = "violet";
@@ -57,6 +65,7 @@ const checkWin = () => {
             boxText[e[0]].innerText != "") {
             document.querySelector(".turn").innerText =
                 boxText[e[0]].innerText + " Won";
+            win.play()
             isGameOver = true;
             document.querySelector("img").style.width = "250px";
 
@@ -64,7 +73,7 @@ const checkWin = () => {
                 document.getElementsByClassName("box")[e[i]].style.backgroundColor =
                     "lightgreen";
             }
-            turn = "";  
+            turn = "";
         }
     });
 };
